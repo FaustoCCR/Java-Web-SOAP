@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="doTransaction" type="tns:doTransaction"/>
+
+<xs:element name="doTransactionResponse" type="tns:doTransactionResponse"/>
+
+<xs:element name="getAllData" type="tns:getAllData"/>
+
+<xs:element name="getAllDataResponse" type="tns:getAllDataResponse"/>
+
+<xs:element name="getDataByUser" type="tns:getDataByUser"/>
+
+<xs:element name="getDataByUserResponse" type="tns:getDataByUserResponse"/>
+
+<xs:element name="loadData" type="tns:loadData"/>
+
+<xs:element name="loadDataResponse" type="tns:loadDataResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="procesarPago" type="tns:procesarPago"/>
+
+<xs:element name="procesarPagoResponse" type="tns:procesarPagoResponse"/>
+
+<xs:element name="register" type="tns:register"/>
+
+<xs:element name="setNewSaldo" type="tns:setNewSaldo"/>
+
+<xs:element name="setNewSaldoResponse" type="tns:setNewSaldoResponse"/>
+
+<xs:complexType name="getAllData">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAllDataResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuarioVo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuarioVo">
+<xs:sequence>
+<xs:element name="id_usuario" type="xs:int"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="saldo" type="xs:double"/>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setNewSaldo">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setNewSaldoResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getDataByUser">
+<xs:sequence>
+<xs:element name="id_user" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getDataByUserResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuarioVo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="procesarPago">
+<xs:sequence>
+<xs:element name="total" type="xs:double"/>
+<xs:element name="pago" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="procesarPagoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loadData">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="loadDataResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="register">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="saldo" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="doTransaction">
+<xs:sequence>
+<xs:element name="id_usuario" type="xs:int"/>
+<xs:element name="operation" type="xs:string" minOccurs="0"/>
+<xs:element name="saldo" type="xs:double"/>
+<xs:element name="valor" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="doTransactionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
